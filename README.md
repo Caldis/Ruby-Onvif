@@ -13,19 +13,9 @@ Ruby-Onvif
   
 注意:
 
-  使用了
+  使用了: em_ws_discovery, em-http-request, em-http-server, activesupport, akami
   
-  em_ws_discovery
-  
-  em-http-request
-  
-  em-http-server
-  
-  activesupport'
-  
-  akami
-  
-  这几个库,使用"gem install 'name'"获取即可
+  这几个库,使用"gem install name"获取即可
   
   其中em_ws_discovery已经集成到本地,经过部分修改.
 
