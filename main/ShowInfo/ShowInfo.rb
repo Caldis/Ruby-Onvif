@@ -1,0 +1,5 @@
+require_relative 'showDeviceGeneralInfo'
+require_relative 'showProtocolInfo'
+require_relative 'showDeviceMediaInfo'
+require_relative 'showDeviceCapabilitiesInfo'
+require_relative 'showAndSaveAllData'
