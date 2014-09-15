@@ -9,7 +9,6 @@ def get_event_service_address ipaddress, cb
     content = [{:Category => 'Events'}]
     device_management.get_capabilities content, ->(success, result) {
         if success
-            puts "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%success%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
             #puts result
             @res[:address] = result[:events][:x_addr]
             @res[:subscription_policy_support] = result[:events][:wssubscription_policy_support]

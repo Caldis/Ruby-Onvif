@@ -3,9 +3,10 @@ require 'em-http-server'
 
 module ONVIF
   class Server < EM::HttpServer::Server
-      # def post_init
-      #     super
-      # end
+      #def post_init
+      #    super
+      #end
+
       def initialize call_back
           @call_back = call_back
           super
@@ -30,17 +31,17 @@ module ONVIF
           # you have all the http headers in this hash
           puts  @http.inspect
           puts "############################ #{__LINE__}"
-          puts @http_if_none_match
+          puts  @http_if_none_match
           puts "############################ #{__LINE__}"
-          puts @http_path_info
+          puts  @http_path_info
           puts "############################ #{__LINE__}"
-          puts @http_if_none_match
+          puts  @http_if_none_match
           puts "############################ #{__LINE__}"
-          puts @http_post_content
+          puts  @http_post_content
           puts "############################ #{__LINE__}"
-          puts @http_headers
+          puts  @http_headers
           puts "############################ #{__LINE__}"
-          puts @http_bodys
+          puts  @http_bodys
 
           result = parse_data @http_content
           # response = EM::DelegatedHttpResponse.new(self)
@@ -54,6 +55,10 @@ module ONVIF
       def http_request_errback e
           # printing the whole exception
           puts e.inspect
+      end
+
+      def receive_data(data)
+        puts data
       end
 
       def parse_data data
@@ -84,9 +89,9 @@ module ONVIF
   end
 end
 
-# EM::run do
-#     EM::start_server("0.0.0.0", 8080, Server)
-# end
+#EM::run do
+#    EM::start_server("0.0.0.0", 8080, Server)
+#end
     # the http request details are available via the following instance variables:
 
 

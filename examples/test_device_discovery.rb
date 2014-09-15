@@ -13,6 +13,7 @@ EM.run do
         print "Device Service Address : "
         puts device[:device_service_address]
         print "Scopes                 : "
+        print device[:scopes].inspect
         device[:scopes].each do |sco|
             if sco != device[:scopes][0]
                 print " "*25

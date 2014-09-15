@@ -10,6 +10,11 @@ def showDeviceCapabilitiesInfo (result)
         end
     end
     puts
+    result.each do |capName, capData|
+      if capName.to_s != "ipa"
+        puts "#{capName} ".capitalize + " : #{capData[:x_addr]}"
+      end
+    end
     puts "=========================Device_Capabilitise_info_End==================="
 end
 
@@ -30,7 +35,7 @@ def saveDeviceCapabilitiesInfo (result)
     path = Pathname.new(File.dirname(__FILE__)).realpath
     time = Time.now.strftime("%F %H.%M")
     name = "#{time} Device_Info.txt"
-    file = File.new("#{path}/../../DataSave/#{name}", "a+")
+    file = File.new("#{path}/../../DataSave/DeviceInfo/#{name}", "a+")
 
     file.puts "===========================Device_Capabilitise_info====================="
     file.print "Device GetCapabilities Support : "
@@ -49,7 +54,7 @@ def saveDeviceCapabilitiesErrorInfo
     path = Pathname.new(File.dirname(__FILE__)).realpath
     time = Time.now.strftime("%F %H.%M")
     name = "#{time} Device_Info.txt"
-    file = File.new("#{path}/../../DataSave/#{name}", "a+")
+    file = File.new("#{path}/../../DataSave/DeviceInfo/#{name}", "a+")
 
     file.puts "===========================Device_Capabilitise_info====================="
     file.puts "ERROR!  Connection has been close, please check the UserName and Password"

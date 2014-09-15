@@ -40,7 +40,7 @@ class WSDiscovery::Searcher < WSDiscovery::MulticastConnection
         #WSDiscovery::Searcher.log "<#{self.class}> Response from #{ip}:#{port}:\n#{response}\n"
 
         #海康的设备默认返回IPV4与IPV6两个设备地址,导致Parse出错,这里将IPV6地址删除
-        reg = /\w{4}\:\/\/\[\w{4}\:\:\w{4}\:\w{4}\:\w{4}\:\w{4}\]\/\w+\/\w+/
+        reg = /\w{4}\:\/\/\[\w{4}\:\:\w{4}\:\w{4}\:\w{4}\:\w{4}\]\:?\d{,5}?\/\w+\/\w+/
         if reg.match(response) != nil
             response.gsub!(reg, '')
         end

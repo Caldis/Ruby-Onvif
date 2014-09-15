@@ -1,0 +1,41 @@
+在Gem文件夹内有部分需要的Gem文件,CD进入目录之后键入以下命令可以直接安装
+gem install —local 「gemFileNames」
+
+——————gemFileNames————————|———————————————————gemDescription————————————————————
+
+macaddr-1.7.1.gem         | MAC address determination
+uuid-2.3.7.gem            | UUID generator
+builder-3.2.2.gem         | XML Markup
+eventmachine-1.0.3.gem    | Engine for arbitrary network communications
+nokogiri-1.6.3.1.gem      | HTML, XML, SAX, and Reader parser
+nori-2.4.0.gem            | XML to Hash translator
+em_ws_discovery-0.0.2.gem | Ruby based ws_discovery
+em-http-request-1.1.2.gem | EventMachine based, async HTTP Request client
+em-http-server-0.1.8.gem  | Simple http server for eventmachine
+activesupport-4.1.5.gem   | A toolkit of support libraries from the Rails framework
+akami-1.2.2.gem           | Building Web Service Security
+
+
+在Main目录下是主程序
+
+Main.rb, Discovery.rb
+如果只是想获取设备列表,而不需要设备信息,可以直接执行Main/ShowInfo/Discovery.rb,这一步不需要用户名和密码认证.
+执行main.rb可以获取局域内所有支持onvif协议的摄像头设备的具体信息.
+获取设备能力需要用户名和密码,所以在此之前需要设置main.rb里面的UserName和PassWord,用户名和密码不符合的设备将不会被打印出来.
+如果需要打印全部设备的建议将用户名和密码认证取消,或者将所有设备的用户名和密码设置为相同.
+
+event.rb
+执行event.rb可以获取指定设备的告警信息,需要先指定设备的UserName和PassWord,和告警服务地址.
+告警服务地址一般格式为"http://192.168.2.79:8080/onvif/Events”,端口号可能有也可能没有.
+该地址可以使用Main.rb获取.
+
+ptz.rb
+执行ptz.rb可以对指定设备进行PTZ控制,需要先指定设备的UserName和PassWord,Profile的Token,和PTZ服务地址.
+PTZ服务地址一般格式为"http://192.168.2.217:80/onvif/ptz_service”,端口号可能有也可能没有.
+Profile的Token为主码流或者子码流的token.
+以上两个参数可以运行Main/PTZ目录下的getPTZAddrAndToken.rb获取,需要指定IP和设备用户名密码.
+continueMove函数可以对设备发出continueMove指令,设备会一直执行Pan/Tilt动作,直到用户给定的timeOut到达,或调用stopContinueMove为止,timeOut可以在continueMove的最后一个参数指定,若不指定,默认为5秒.
+stopContinueMove函数可以对设备发出stopContinueMove指令,设备会立刻停止Pan/Tilt动作.
+zoom函数可以对设备发出zoom指令,设备会一直执行zoom动作,直到最大/最小的变焦倍数到达,或用户给定的timeOut到达,或调用stopZoom为止,timeOut可以在continueMove的最后一个参数指定,若不指定,默认为1秒.
+stopZoom函数可以对设备发出stopZoom指令,设备会立刻停止Zoom动作.
+stopAll函数可以对设备发出stopAll指令,设备会立刻停止Pan/Tilt/Zoom所有动作.

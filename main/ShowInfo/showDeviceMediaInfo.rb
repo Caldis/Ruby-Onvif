@@ -130,7 +130,7 @@ def saveDeviceMediaInfo (result)
     path = Pathname.new(File.dirname(__FILE__)).realpath
     time = Time.now.strftime("%F %H.%M")
     name = "#{time} Device_Info.txt"
-    file = File.new("#{path}/../../DataSave/#{name}", "a+")
+    file = File.new("#{path}/../../DataSave/DeviceInfo/#{name}", "a+")
 
 	file.puts "============================Device_Media_info==========================="
 	result.each do |source|
@@ -205,7 +205,7 @@ def saveDeviceMediaErrorInfo
     path = Pathname.new(File.dirname(__FILE__)).realpath    
     time = Time.now.strftime("%F %H.%M")
     name = "#{time} Device_Info.txt"
-    file = File.new("#{path}/../../DataSave/#{name}", "a+")
+    file = File.new("#{path}/../../DataSave/DeviceInfo/#{name}", "a+")
 
 	file.puts "============================Device_Media_info==========================="
 	file.puts "ERROR!  Connection has been close, please check the UserName and Password"
@@ -219,7 +219,7 @@ def saveDeviceStreamURIInfo (result)
 	path = Pathname.new(File.dirname(__FILE__)).realpath    
     time = Time.now.strftime("%F %H.%M")
     name = "#{time} Device_Info.txt"
-    file = File.new("#{path}/../../DataSave/#{name}", "a+")
+    file = File.new("#{path}/../../DataSave/DeviceInfo/#{name}", "a+")
 
     result.each do |uri|
 	    if uri.has_key? :media_uri
@@ -237,7 +237,7 @@ def saveDeviceStreamURIErrorInfo
 	path = Pathname.new(File.dirname(__FILE__)).realpath    
     time = Time.now.strftime("%F %H.%M")
     name = "#{time} Device_Info.txt"
-    file = File.new("#{path}/../../DataSave/#{name}", "a+")
+    file = File.new("#{path}/../../DataSave/DeviceInfo/#{name}", "a+")
 
 	file.puts "=============================Stream_URI_Info============================"
     file.puts "Stream URI : ERROR !  This profile has no StreamURI"

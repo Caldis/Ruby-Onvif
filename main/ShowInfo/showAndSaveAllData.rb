@@ -1,6 +1,6 @@
 def showAndSaveAllData (capaResult, ptcResult, deviceList, midResult, media)
-	showDeviceCapabilitiesInfo capaResult
-	saveDeviceCapabilitiesInfo capaResult
+	  showDeviceCapabilitiesInfo capaResult
+	  saveDeviceCapabilitiesInfo capaResult
     showProtocolInfo ptcResult, deviceList
     saveProtocolInfo ptcResult, deviceList
     showDeviceMediaInfo midResult

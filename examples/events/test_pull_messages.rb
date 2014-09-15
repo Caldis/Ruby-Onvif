@@ -1,22 +1,21 @@
 require_relative "../../lib/ruby_onvif_client"
+require_relative "../../main/ShowEvent/ShowEvent"
 
-EM.run do 
-    get_event_service_address "192.168.16.106", ->(address) {
-        puts "address=",address
-        event = ONVIF::Event.new(address)
-        event.create_pull_point_subscription 'PT10S', ->(success, result) {
-            if success
-                puts "ooooooooooooook", result
-                content = {}
-                content[:time_out] = 'PT20S'
-                content[:message_limit] = '2'
-                event.pull_messages content, ->(success, result) {
-                	if success
-                		puts "pulllllllllllllll"
-                	end
-                } 
-            end
-        }      
-    }    
-   
+UserName = "admin"
+PassWord = "12345"
+Address  = "http://192.168.2.79/onvif/Events/PullSubManager_2014-09-03T09:18:10Z_8"
+
+EM.run do
+    event = ONVIF::Event.new(Address, UserName, PassWord)
+    content = {}
+    content[:time_out] = 'PT5M'
+    content[:message_limit] = '10'
+    event.pull_messages content, ->(success, result) {
+      if success
+        showDeviceEvent result
+      else
+        puts "Pull Messages ERROR"
+        puts result
+      end
+    }
 end

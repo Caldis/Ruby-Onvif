@@ -9,12 +9,12 @@ module ONVIF
             #              <!--0 or more-->
             # }]
             def run options, cb
-                message = Message.new
-                message.body =  ->(xml) do
-                    xml.wsdl(:GetCapabilities) do
+                message = Message.new namespaces: {:'xmlns:tds'  => "http://www.onvif.org/ver10/device/wsdl", :'xmlns:tt'   => "http://www.onvif.org/ver10/schema"}
+                message.body = ->(xml) do
+                    xml.tds(:GetCapabilities) do
                         unless options.nil?
                             options.each do |option|
-                                xml.wsdl :Category, option[:Category]
+                                xml.tds :Category, option[:Category]
                             end
                         end
                     end

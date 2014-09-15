@@ -51,7 +51,7 @@ def saveDeviceGeneralInfo (device)
     path = Pathname.new(File.dirname(__FILE__)).realpath
     time = Time.now.strftime("%F %H.%M")
     name = "#{time} Device_Info.txt"
-    file = File.new("#{path}/../../DataSave/#{name}", "a+")
+    file = File.new("#{path}/../../DataSave/DeviceInfo/#{name}", "a+")
 
     file.puts
     file.puts "==============================General_info=============================="
@@ -77,7 +77,7 @@ def saveSingleDeviceGeneralInfo (addr, deviceAllList)
     path = Pathname.new(File.dirname(__FILE__)).realpath
     time = Time.now.strftime("%F %H.%M")
     name = "#{time} Device_Info.txt"
-    file = File.new("#{path}/../../DataSave/#{name}", "a+")
+    file = File.new("#{path}/../../DataSave/DeviceInfo/#{name}", "a+")
 
     deviceAllList.each do |device|
         if device[:device_ip] == addr

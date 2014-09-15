@@ -1,0 +1,208 @@
+
+==============================General_info==============================
+EndpointReference      : urn:uuid:fab29b7b-1dd1-11b2-84bc-4419b7252352
+Device Types           : dn:NetworkVideoTransmitter tds:Device
+Device Address         : 192.168.2.79
+Device Service Address : http://192.168.2.79/onvif/device_service 
+Scopes                 : onvif://www.onvif.org/type/video_encoder
+                         onvif://www.onvif.org/Profile/Streaming
+                         onvif://www.onvif.org/hardware/DS-2CD2212D-I3
+                         onvif://www.onvif.org/name/DS-2CD2212D-I3
+                         onvif://www.onvif.org/location/city/hangzhou
+Metadata Version       : 10
+=============================General_info_End===========================
+===============================Protocol_info============================
+Protocol Name   : HTTP
+Protocol status : true
+Protocol Port   : 80
+========================================================================
+Protocol Name   : RTSP
+Protocol status : true
+Protocol Port   : 554
+==============================Protocol_info_End=========================
+===========================Device_Capabilitise_info=====================
+Device GetCapabilities Support : Analytics Device Events Imaging Media 
+=========================Device_Capabilitise_info_End===================
+=============================Stream_URI_Info============================
+Stream URI : rtsp://192.168.2.79:554/Streaming/Channels/1?transportmode=unicast&profile=Profile_1
+===========================Stream_URI_Info_End==========================
+=============================Stream_URI_Info============================
+Stream URI : rtsp://192.168.2.79:554/Streaming/Channels/2?transportmode=unicast&profile=Profile_2
+===========================Stream_URI_Info_End==========================
+============================Device_Media_info===========================
+Stream  Name                  : mainStream
+Profile Name                  : Profile_1
+Video Source Configuration 
+    Configuration Name        : VideoSourceConfig
+    Configuration Token       : VideoSourceToken
+    Source Use Conut          : 2
+    Source Token              : VideoSource_1
+    Source Resolution Width   : 1280
+    Source Resolution Height  : 960
+Video Encoder Configuration 
+    Configuration Name        : VideoEncoder_1
+    Configuration Token       : VideoEncoderToken_1
+    Encoder Use Conut         : 1
+    Encoding                  : H264
+    Video Quality             : 5.000000
+    Session Timeout           : PT5S
+    Encoder Resolution Width  : 1280
+    Encoder Resolution Height : 720
+    Frame Rate limit          : 25
+    Encoding Interval         : 1
+    Bitrate Limit             : 2028
+    Gov Length                : 50
+    H264 Profile              : Baseline
+    Type                      : IPv4
+    Multicast Address         : 0.0.0.0
+    Pott                      : 8600
+    TTL                       : 1
+    Auto Start Status         : false
+Video Analytics Configuration 
+    Configuration Name        : VideoAnalyticsName
+    Configuration Token       : VideoAnalyticsToken
+    Analytice Use Count       : 2
+    Analytics Module Name     : MyCellMotionModule
+    Analytics Module Type     : tt:CellMotionEngine
+========================================================================
+Stream  Name                  : subStream
+Profile Name                  : Profile_2
+Video Source Configuration 
+    Configuration Name        : VideoSourceConfig
+    Configuration Token       : VideoSourceToken
+    Source Use Conut          : 2
+    Source Token              : VideoSource_1
+    Source Resolution Width   : 1280
+    Source Resolution Height  : 960
+Video Encoder Configuration 
+    Configuration Name        : VideoEncoder_2
+    Configuration Token       : VideoEncoderToken_2
+    Encoder Use Conut         : 1
+    Encoding                  : H264
+    Video Quality             : 3.000000
+    Session Timeout           : PT5S
+    Encoder Resolution Width  : 352
+    Encoder Resolution Height : 288
+    Frame Rate limit          : 25
+    Encoding Interval         : 1
+    Bitrate Limit             : 512
+    Gov Length                : 50
+    H264 Profile              : Baseline
+    Type                      : IPv4
+    Multicast Address         : 0.0.0.0
+    Pott                      : 8600
+    TTL                       : 1
+    Auto Start Status         : false
+Video Analytics Configuration 
+    Configuration Name        : VideoAnalyticsName
+    Configuration Token       : VideoAnalyticsToken
+    Analytice Use Count       : 2
+    Analytics Module Name     : MyCellMotionModule
+    Analytics Module Type     : tt:CellMotionEngine
+============================Device_Media_info_End=======================
+
+==============================General_info==============================
+EndpointReference      : urn:uuid:1419d68a-1dd2-11b2-a105-0069339E0158
+Device Types           : tdn:NetworkVideoTransmitter
+Device Address         : 192.168.2.253
+Device Service Address : http://192.168.2.253:80/onvif/device_service
+Scopes                 : onvif://www.onvif.org/type/Network_Video_Transmitter
+                         onvif://www.onvif.org/type/ptz
+                         onvif://www.onvif.org/type/video_encoder
+                         onvif://www.onvif.org/type/audio_encoder
+                         onvif://www.onvif.org/type/video_analytics
+                         onvif://www.onvif.org/name/ONVIF_IPNC
+                         onvif://www.onvif.org/Hardware/DM36X_IPNC
+                         onvif://www.onvif.org/location/China
+                         onvif://www.onvif.org/location/Shenzhen
+Metadata Version       : 1
+=============================General_info_End===========================
+===============================Protocol_info============================
+Protocol Name   : HTTP
+Protocol status : true
+Protocol Port   : 80
+========================================================================
+Protocol Name   : RTSP
+Protocol status : true
+Protocol Port   : 554
+==============================Protocol_info_End=========================
+===========================Device_Capabilitise_info=====================
+Device GetCapabilities Support : Analytics Device Events Imaging Media Ptz 
+=========================Device_Capabilitise_info_End===================
+=============================Stream_URI_Info============================
+Stream URI : rtsp://192.168.2.253:554/mpeg4
+===========================Stream_URI_Info_End==========================
+=============================Stream_URI_Info============================
+Stream URI : rtsp://192.168.2.253:554/mpeg4cif
+===========================Stream_URI_Info_End==========================
+============================Device_Media_info===========================
+Stream  Name                  : MainStream
+Profile Name                  : MainStream
+Video Source Configuration 
+    Configuration Name        : VideoSourceMain
+    Configuration Token       : VideoSourceMain
+    Source Use Conut          : 2
+    Source Token              : VideoSourceMain
+    Source Resolution Width   : 1280
+    Source Resolution Height  : 720
+Video Encoder Configuration 
+    Configuration Name        : h264main
+    Configuration Token       : VideoMain
+    Encoder Use Conut         : 1
+    Encoding                  : H264
+    Video Quality             : 80
+    Session Timeout           : PT0H12M0S
+    Encoder Resolution Width  : 1280
+    Encoder Resolution Height : 720
+    Frame Rate limit          : 25
+    Encoding Interval         : 100
+    Bitrate Limit             : 2560
+    Gov Length                : 100
+    H264 Profile              : High
+    Type                      : IPv4
+    Multicast Address         : 192.168.2.253
+    Pott                      : 0
+    TTL                       : 0
+    Auto Start Status         : false
+Video Analytics Configuration 
+    Configuration Name        : VideoAnalyticsName
+    Configuration Token       : VideoAnalyticsToken
+    Analytice Use Count       : 3
+    Analytics Module Name     : MyCellMotionModule
+    Analytics Module Type     : tt:CellMotionEngine
+========================================================================
+Stream  Name                  : SubStream
+Profile Name                  : SubStream
+Video Source Configuration 
+    Configuration Name        : VideoSourceMain
+    Configuration Token       : VideoSourceMain
+    Source Use Conut          : 2
+    Source Token              : VideoSourceMain
+    Source Resolution Width   : 640
+    Source Resolution Height  : 360
+Video Encoder Configuration 
+    Configuration Name        : h264sub
+    Configuration Token       : VideoSub
+    Encoder Use Conut         : 1
+    Encoding                  : H264
+    Video Quality             : 80
+    Session Timeout           : PT0H12M0S
+    Encoder Resolution Width  : 640
+    Encoder Resolution Height : 360
+    Frame Rate limit          : 30
+    Encoding Interval         : 100
+    Bitrate Limit             : 350
+    Gov Length                : 100
+    H264 Profile              : High
+    Type                      : IPv4
+    Multicast Address         : 192.168.2.253
+    Pott                      : 0
+    TTL                       : 0
+    Auto Start Status         : false
+Video Analytics Configuration 
+    Configuration Name        : VideoAnalyticsName
+    Configuration Token       : VideoAnalyticsToken
+    Analytice Use Count       : 3
+    Analytics Module Name     : MyCellMotionModule
+    Analytics Module Type     : tt:CellMotionEngine
+============================Device_Media_info_End=======================

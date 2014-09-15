@@ -3,46 +3,24 @@ require_relative '../action'
 module ONVIF
     module PtzAction
         class ContinuousMove < Action
-            # options 的结构  
-            # {
-            #     profile_token: "xxxxxxx",//[ReferenceToken] A reference to the MediaProfile where the operation should take place.
-            #     velocity: {  //optional
-            #         pan_tilt: { //optional
-            #             x: 1, //[float]
-            #             y: 2, //[float]
-            #             space: "http://www.onvif.org/ver10/tptz/PanTiltSpaces/PositionGenericSpace", //[anyURI]
-            #             // http://www.onvif.org/ver10/tptz/PanTiltSpaces/PositionGenericSpace
-            #             // http://www.onvif.org/ver10/tptz/PanTiltSpaces/TranslationGenericSpace
-            #             // http://www.onvif.org/ver10/tptz/PanTiltSpaces/VelocityGenericSpace
-            #             // http://www.onvif.org/ver10/tptz/PanTiltSpaces/GenericSpeedSpace
-            #         },
-            #         zoom: { //optional
-            #             x: 1,//[float]
-            #             space: "http://www.onvif.org/ver10/tptz/PanTiltSpaces/PositionGenericSpace",//[anyURI]
-            #         }
-            #     },
-            #     timeout: '' //optional [duration]
-            # }
             def run options, cb
                 message = create_ptz_onvif_message namespaces: {:'xmlns:sch' => 'http://www.onvif.org/ver10/schema'}
                 message.body =  ->(xml) do
-                    xml.wsdl(:ContinuousMove) do
-                        xml.wsdl :ProfileToken, options[:profile_token]
-                        unless options[:velocity].nil?
-                            xml.wsdl(:Velocity) do
-                                unless options[:velocity][:pan_tilt].nil?
-                                    xml.sch :PanTilt, {
-                                        "x" => options[:velocity][:pan_tilt][:x],
-                                        "y" => options[:velocity][:pan_tilt][:y],
-                                        "space" => options[:velocity][:pan_tilt][:space]
-                                    }
-                                end
-                                unless options[:velocity][:zoom].nil?
-                                    xml.sch :Zoom, {
-                                        "x" => options[:velocity][:zoom][:x],
-                                        "space" => options[:velocity][:zoom][:space]
-                                    }
-                                end
+                    xml.ContinuousMove('xmlns' => 'http://www.onvif.org/ver20/ptz/wsdl') do
+                        xml.ProfileToken options[:profile_token]
+                        xml.Velocity do
+                            unless options[:velocity][:pan_tilt].nil?
+                                xml.PanTilt(
+                                    "x" => options[:velocity][:pan_tilt][:x],
+                                    "y" => options[:velocity][:pan_tilt][:y],
+                                    "xmlns" => options[:velocity][:pan_tilt][:xmlns]
+                                )
+                            end
+                            unless options[:velocity][:zoom].nil?
+                              xml.Zoom(
+                                  "x" => options[:velocity][:zoom][:x],
+                                  "xmlns" => options[:velocity][:zoom][:xmlns]
+                              )
                             end
                         end
                         xml.wsdl :Timeout, options[:timeout] unless options[:timeout].nil?

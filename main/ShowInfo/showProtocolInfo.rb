@@ -30,7 +30,7 @@ def saveProtocolInfo (result, deviceList)
     path = Pathname.new(File.dirname(__FILE__)).realpath
     time = Time.now.strftime("%F %H.%M")
     name = "#{time} Device_Info.txt"
-    file = File.new("#{path}/../../DataSave/#{name}", "a+")
+    file = File.new("#{path}/../../DataSave/DeviceInfo/#{name}", "a+")
 
     file.puts "===============================Protocol_info============================"
     result.each do |pto|
@@ -50,7 +50,7 @@ def saveProtocolErrorInfo
     path = Pathname.new(File.dirname(__FILE__)).realpath
     time = Time.now.strftime("%F %H.%M")
     name = "#{time} Device_Info.txt"
-    file = File.new("#{path}/../../DataSave/#{name}", "a+")
+    file = File.new("#{path}/../../DataSave/DeviceInfo/#{name}", "a+")
 
     file.puts "==============================Protocol_info_End========================="
     file.puts "ERROR!  Connection has been close, please check the UserName and Password"

@@ -18,16 +18,13 @@ module ONVIF
                         xml_doc = Nokogiri::XML(result[:content])
                         addresses = []
                         xml_doc.xpath('//tev:SubscriptionReference').each do |node|
-                            addresses << value(node, 'wsa5:Address')
+                            addresses << value(node, 'wsa:Address')
                         end                        
                         res = {}
                         puts addresses
                         res[:addresses] = addresses
-                        current_time = xml_doc.xpath('//wsnt:CurrentTime').first.content
-                        termination_time = xml_doc.xpath('//wsnt:TerminationTime').first.content
-                        puts current_time, termination_time
-                        res[:current_time] = current_time
-                        res[:termination_time] = termination_time
+                        res[:current_time] = xml_doc.xpath('//wsnt:CurrentTime').first.content
+                        res[:termination_time] = xml_doc.xpath('//wsnt:TerminationTime').first.content
                         callback cb, success, res
                     else
                         callback cb, success, result

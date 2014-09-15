@@ -3,10 +3,9 @@ require "active_support/all"
 
 module ONVIF
     class Service
+        attr_accessor :client
         def initialize address, username = 'admin', password = '12345'
-            @client = ONVIF::Client.new(
-                address: address
-            )
+            @client = ONVIF::Client.new(address: address)
             @username = username
             @password = password
         end
